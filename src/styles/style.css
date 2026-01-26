@@ -1,0 +1,263 @@
+/* ---------- Global Variables ---------- */
+:root {
+  --bg-dark: #050511;
+  --text-light: #e0e6ed;
+  --text-muted: #94a3b8;
+  --primary-color: #0d6efd;
+  /* Bootstrap primary */
+  --neon-cyan: #00f0ff;
+  --neon-purple: #6feac9;
+  --neon-blue: #0066ff;
+  --glass-bg: rgba(5, 5, 17, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+  padding-top: 80px;
+}
+
+/* Background Grid Effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Glow Effects */
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+  font-weight: 700;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-blue));
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+  color: #000;
+}
+
+.btn-outline-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 30px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.bg-glass {
+  background-color: var(--glass-bg) !important;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--neon-cyan) !important;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+/* ---------- Hero Section ---------- */
+.hero-gradient-text {
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-blue), var(--neon-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradientFlow 3s linear infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+
+.badge-glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--neon-cyan);
+  padding: 8px 16px;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  font-weight: 500;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
+}
+
+/* ---------- Cards ---------- */
+.card-glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card-glass:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+}
+
+/* ---------- Forms ---------- */
+.form-control-dark {
+  background-color: rgba(13, 13, 26, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 12px 15px;
+  border-radius: 8px;
+  height: 42px;
+  font-size: 0.95rem;
+}
+
+.form-control-dark:focus {
+  background-color: rgba(13, 13, 26, 1);
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 0 4px rgba(112, 0, 255, 0.1);
+  color: #fff;
+}
+
+.form-control-dark::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 40px 0;
+  margin-top: 80px;
+}
+
+footer a {
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: var(--neon-cyan);
+  text-decoration: none;
+}
+/* ================================
+   CONTACT INFO – SAME SIZE BOXES
+================================ */
+
+#contact .card-glass {
+  height: 96px;              /* 🔥 SAME HEIGHT */
+  display: flex;
+  align-items: center;
+  padding: 16px !important;
+}
+
+/* Icon container – fixed size */
+#contact .icon-box {
+  width: 40px;
+  height: 40px;
+  min-width: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* Text alignment */
+#contact .info-text small {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+#contact .info-text span,
+#contact .info-text a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.2;
+  display: block;
+}
+
+/* Prevent text from breaking box size */
+#contact .info-text span,
+#contact .info-text a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+#contact textarea.form-control-dark {
+  min-height: 110px;
+}
