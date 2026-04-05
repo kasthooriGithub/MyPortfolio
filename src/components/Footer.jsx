@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-6 text-center text-md-start mb-4 mb-md-0">
-            <h4 className="fw-bold opacity-50 hero-gradient-text mb-1">Kasthoori</h4>
+            <h4 className="fw-bold opacity-50 hero-gradient-text mb-1">JK</h4>
             <p className="small opacity-50 mb-0">Building the future of web, one pixel at a time.</p>
           </div>
           <div className="col-md-6 text-center text-md-end">
@@ -24,7 +24,7 @@ const Footer = () => {
               </a>
             </div>
             <p className="small opacity-50 mb-0">
-              &copy; {currentYear} Kasthoori Portfolio. All rights reserved.
+              &copy; {currentYear} JK Portfolio. All rights reserved.
             </p>
           </div>
         </div>

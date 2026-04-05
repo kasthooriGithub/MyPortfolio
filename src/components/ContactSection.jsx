@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
 const contactInfo = [
-  { icon: 'bi-envelope', label: 'Email', value: 'kasthoorikaneshalingam@gmail.com', href: 'kasthoorikaneshalingam@gmail.com' },
-  // { icon: 'bi-linkedin', label: 'LinkedIn', value: 'linkedin.com/in/developer', href: 'https://linkedin.com' },
-  { icon: 'bi-github', label: 'GitHub', value: 'github.com/kasthooriGithub', href: 'https://github.com/kasthooriGithub' },
-  
+  { icon: 'bi-envelope', label: 'Email', value: 'test@gmail.com', href: 'mailto:test@gmail.com' },
+  { icon: 'bi-github', label: 'GitHub', value: 'github.com/test', href: 'https://github.com/test' },
 ];
 
 const ContactSection = () => {
@@ -24,8 +22,6 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate submission
     setTimeout(() => {
       setIsSubmitting(false);
       setShowToast(true);
@@ -36,51 +32,38 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-5">
-      <div className="container py-5">
+      <div className="container py-lg-5">
         <div className="text-center mb-5">
-          <h2 className="display-4 fw-bold">
+          <h2 className="display-5 display-md-4 fw-bold">
             Get In <span className="hero-gradient-text">Touch</span>
           </h2>
-          <p className="opacity-50 mt-2">
-            Have a project in mind? Let's discuss how we can work together.
+          <p className="opacity-75 mt-2 px-lg-5 mx-auto" style={{ maxWidth: '600px' }}>
+            Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
           </p>
         </div>
 
-        
-        <div className="row g-5 align-items-stretch">
-          
-          <div className="col-lg-5 d-flex flex-column">
-            <h3 className="h4 fw-bold mb-4">Contact Information</h3>
-
-            <div className="row g-3">
+        <div className="row g-4 g-lg-5">
+          <div className="col-12 col-lg-4">
+            <div className="d-flex flex-column gap-3">
               {contactInfo.map((info, idx) => (
-                <div key={idx} className="col-12">
-                  {/* same padding feel as right side */}
-                  <div className="card-glass p-4 border-0">
-                    <div className="d-flex align-items-center gap-3">
-                      <div
-                        className="icon-box bg-dark text-primary rounded-circle d-flex align-items-center justify-content-center"
-                        style={{ width: '48px', height: '48px', minWidth: '48px' }}
+                <div key={idx} className="card-glass p-3 border-0 shadow-sm">
+                  <div className="d-flex align-items-center gap-3">
+                    <div
+                      className="icon-box bg-dark text-primary shadow-sm"
+                      style={{ width: '50px', height: '50px', minWidth: '50px' }}
+                    >
+                      <i className={`bi ${info.icon} fs-4`}></i>
+                    </div>
+                    <div className="info-text overflow-hidden">
+                      <small className="d-block opacity-50 mb-1">{info.label}</small>
+                      <a
+                        href={info.href}
+                        className="text-light text-decoration-none text-truncate d-block fw-medium"
+                        target="_blank"
+                        rel="noreferrer"
                       >
-                        <i className={`bi ${info.icon} fs-5`}></i>
-                      </div>
-
-                      <div className="info-text overflow-hidden">
-                        <small className="d-block opacity-50">{info.label}</small>
-
-                        {info.href ? (
-                          <a
-                            href={info.href}
-                            className="text-light text-decoration-none text-truncate d-block"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            {info.value}
-                          </a>
-                        ) : (
-                          <span className="text-light d-block text-truncate">{info.value}</span>
-                        )}
-                      </div>
+                        {info.value}
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -88,13 +71,12 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/*  Right side: make card full height to match left side */}
-          <div className="col-lg-7">
-            <div className="card-glass p-4 border-0 h-100">
+          <div className="col-12 col-lg-8">
+            <div className="card-glass p-4 p-md-5 border-0 shadow-lg">
               <form onSubmit={handleSubmit}>
-                <div className="row g-3">
-                  <div className="col-md-6">
-                    <label className="form-label small opacity-100">First Name</label>
+                <div className="row g-3 g-md-4">
+                  <div className="col-12 col-md-6">
+                    <label className="form-label small fw-medium opacity-75 mb-2">Full Name</label>
                     <input
                       type="text"
                       name="name"
@@ -105,9 +87,8 @@ const ContactSection = () => {
                       required
                     />
                   </div>
-
-                  <div className="col-md-6">
-                    <label className="form-label small opacity-100">Email Address</label>
+                  <div className="col-12 col-md-6">
+                    <label className="form-label small fw-medium opacity-75 mb-2">Email Address</label>
                     <input
                       type="email"
                       name="email"
@@ -118,9 +99,8 @@ const ContactSection = () => {
                       required
                     />
                   </div>
-
                   <div className="col-12">
-                    <label className="form-label small opacity-100">Subject</label>
+                    <label className="form-label small fw-medium opacity-75 mb-2">Subject</label>
                     <input
                       type="text"
                       name="subject"
@@ -131,26 +111,24 @@ const ContactSection = () => {
                       required
                     />
                   </div>
-
                   <div className="col-12">
-                    <label className="form-label small opacity-100">Message</label>
+                    <label className="form-label small fw-medium opacity-75 mb-2">Message</label>
                     <textarea
                       name="message"
                       className="form-control form-control-dark"
                       style={{ minHeight: '150px' }}
-                      placeholder="Your message..."
+                      placeholder="Share your thoughts..."
                       value={formData.message}
                       onChange={handleChange}
                       required
                     ></textarea>
                   </div>
-
-                  <div className="col-12 text-end">
-                    <button type="submit" className="btn btn-primary px-5 py-3" disabled={isSubmitting}>
+                  <div className="col-12 text-center text-md-end pt-3">
+                    <button type="submit" className="btn btn-primary w-100 w-md-auto px-5 py-3 shadow-lg" disabled={isSubmitting}>
                       {isSubmitting ? (
                         <span className="spinner-border spinner-border-sm me-2"></span>
                       ) : (
-                        <i className="bi bi-send me-2"></i>
+                        <i className="bi bi-send-fill me-2"></i>
                       )}
                       Send Message
                     </button>
@@ -162,13 +140,14 @@ const ContactSection = () => {
         </div>
       </div>
 
-      {/* Toast Notification Simulation */}
       {showToast && (
         <div className="position-fixed bottom-0 end-0 p-3" style={{ zIndex: 1100 }}>
-          <div className="bg-glass border border-primary p-3 rounded shadow-lg animate-fade-in">
-            <div className="d-flex align-items-center gap-2">
-              <i className="bi bi-check-circle-fill text-primary"></i>
-              <div className="text-light">Message sent successfully!</div>
+          <div className="bg-glass border border-primary p-3 rounded-4 shadow-lg animate-fade-in">
+            <div className="d-flex align-items-center gap-3">
+              <div className="bg-primary bg-opacity-10 p-2 rounded-circle">
+                <i className="bi bi-check2-circle text-primary fs-5"></i>
+              </div>
+              <div className="text-light fw-medium">Message sent successfully!</div>
             </div>
           </div>
         </div>
